@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="764.0" stylesheets="@CSS1.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.labclinica.PrimaryController">
+   <children>
+      <AnchorPane prefHeight="530.0" prefWidth="764.0">
+         <children>
+            <TabPane id="tabPane" fx:id="paneTab" prefHeight="530.0" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Ingresar Paciente">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="494.0" prefWidth="690.0">
+                           <children>
+                              <TextField id="cedula" fx:id="cedula" layoutX="18.0" layoutY="148.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <TextField fx:id="nombre" layoutX="203.0" layoutY="148.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <TextField fx:id="pApellido" layoutX="400.0" layoutY="148.0">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></TextField>
+                              <TextField fx:id="sApellido" layoutX="588.0" layoutY="148.0" prefWidth="149.0" />
+                              <DatePicker id="fechNac" fx:id="fechaNac" layoutX="18.0" layoutY="232.0" />
+                              <Label layoutX="62.0" layoutY="124.0" prefHeight="25.0" prefWidth="61.0" text="Cedula" />
+                              <Label layoutX="236.0" layoutY="124.0" prefHeight="25.0" prefWidth="82.0" text="Nombre" />
+                              <Label layoutX="409.0" layoutY="124.0" prefHeight="17.0" prefWidth="132.0" text="Primer Apellido" />
+                              <Label layoutX="589.0" layoutY="124.0" prefHeight="25.0" prefWidth="147.0" text="Segundo Apellido" />
+                              <Label layoutX="333.0" layoutY="204.0" prefHeight="25.0" prefWidth="116.0" text="Direreccion" />
+                              <Label layoutX="50.0" layoutY="204.0" text="Fechade Nacimiento" />
+                              <Button fx:id="save" layoutX="264.0" layoutY="390.0" mnemonicParsing="false" onAction="#saveData" prefHeight="57.0" prefWidth="237.0" text="Agendar Cita" />
+                              <TextArea id="direccion" fx:id="direccion" layoutX="277.0" layoutY="232.0" prefHeight="106.0" prefWidth="463.0" />
+                              <Label id="titulo" alignment="CENTER" layoutX="179.0" layoutY="14.0" prefHeight="84.0" prefWidth="406.0" text="Clinica Reds">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Agendar Cita">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <DatePicker fx:id="dia" layoutX="46.0" layoutY="222.0" prefHeight="40.0" prefWidth="220.0" />
+                              <ComboBox fx:id="hora" layoutX="477.0" layoutY="224.0" prefHeight="37.0" prefWidth="178.0" promptText="Hora" />
+                              <Label layoutX="101.0" layoutY="168.0" prefHeight="42.0" prefWidth="110.0" text="Fecha:" />
+                              <Button fx:id="gurdar2" layoutX="264.0" layoutY="388.0" mnemonicParsing="false" onAction="#guardarCita" prefHeight="57.0" prefWidth="237.0" text="Guardar Cita" />
+                              <Label id="titulo2" alignment="CENTER" layoutX="189.0" layoutY="28.0" prefHeight="63.0" prefWidth="386.0" text="Agendar Cita" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Italic" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="104.0" prefHeight="45.0" prefWidth="72.0" text="Paciente:" />
+                              <Label id="nombrePaciente" fx:id="nombrePaciente" layoutX="135.0" layoutY="104.0" prefHeight="45.0" prefWidth="431.0">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font></Label>
+                              <Label layoutX="525.0" layoutY="166.0" prefHeight="46.0" prefWidth="100.0" text="Hora:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Citas">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tableView" layoutX="153.0" prefHeight="500.0" prefWidth="611.0">
+                                <columns>
+                                    <TableColumn id="colCedula" fx:id="colmCedula" minWidth="5.0" prefWidth="130.0" text="Cedula" />
+                                    <TableColumn id="colNombre" fx:id="colmNombre" prefWidth="112.0" text="Nombre" />
+                                    <TableColumn id="colPApellido" fx:id="colmPApellido" minWidth="0.0" prefWidth="169.0" text="Primer Apellido" />
+                                    <TableColumn id="colSApellido" fx:id="colmSApellido" prefWidth="228.0" text="Segundo Apellido" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="tableView2" prefHeight="500.0" prefWidth="153.0">
+                                <columns>
+                                  <TableColumn fx:id="colmFecha" prefWidth="75.0" text="Fecha" />
+                                  <TableColumn fx:id="colmHora" prefWidth="77.0" text="Hora" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Buscar Paciente">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="buscar" layoutX="594.0" layoutY="257.0" mnemonicParsing="false" onAction="#buscarPaciente" prefHeight="52.0" prefWidth="137.0" text="Buscar" />
+                              <TextField fx:id="cedulaPaciente" layoutX="183.0" layoutY="49.0" prefHeight="37.0" prefWidth="160.0" />
+                              <Label layoutX="42.0" layoutY="51.0" prefHeight="32.0" prefWidth="136.0" text="Ingrese la Cedula:" />
+                              <Label layoutX="75.0" layoutY="136.0" prefHeight="43.0" prefWidth="75.0" text="Nombre" />
+                              <Label layoutX="274.0" layoutY="136.0" prefHeight="43.0" prefWidth="127.0" text="Primer Apellido" />
+                              <Label layoutX="477.0" layoutY="139.0" prefHeight="37.0" prefWidth="142.0" text="Segundo Apellido" />
+                              <TextArea fx:id="pacDireccion" editable="false" layoutX="42.0" layoutY="373.0" prefHeight="106.0" prefWidth="463.0" />
+                              <TextField fx:id="pacNombre" editable="false" layoutX="46.0" layoutY="179.0" />
+                              <TextField fx:id="pacPApellido" editable="false" layoutX="263.0" layoutY="179.0" />
+                              <TextField fx:id="pacSApellido" editable="false" layoutX="473.0" layoutY="179.0" />
+                              <Label layoutX="75.0" layoutY="338.0" text="Direccion" />
+                              <Label layoutX="120.0" layoutY="245.0" text="Fecha de la Cita" />
+                              <Label layoutX="362.0" layoutY="245.0" prefHeight="25.0" prefWidth="56.0" text="Hora" />
+                              <TextField fx:id="pacFecCita" layoutX="105.0" layoutY="271.0" />
+                              <TextField fx:id="pacHoraCita" layoutX="335.0" layoutY="271.0" prefHeight="25.0" prefWidth="110.0" />
+                              <Button fx:id="modificar" layoutX="594.0" layoutY="338.0" mnemonicParsing="false" onAction="#modificarPaciente" prefHeight="52.0" prefWidth="137.0" text="Modificar" />
+                              <Button fx:id="Eliminar" layoutX="594.0" layoutY="418.0" mnemonicParsing="false" onAction="#eliminarPaciente" prefHeight="52.0" prefWidth="137.0" text="Eliminar" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
